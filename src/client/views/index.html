@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Article Evaluation using NLP</title>
+</head>
+
+<body>
+    <header>
+        📰 News Article Evaluation using NLP
+    </header>
+    <main>
+        <!-- A quick info of overall project -->
+        <section>
+            <div class="quote">
+                <h2>About</h2>
+            </div>
+            <h3>
+                What is NLP?
+            </h3>
+
+            <p>
+                Natural language processing (NLP) is a subfield of linguistics, computer science, information
+                engineering, and artificial intelligence concerned with the interactions between computers and human
+                (natural) languages, in particular how to program computers to process and analyze large amounts of
+                natural language data.
+            </p>
+
+            <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Know more</a>
+
+            <h3>AYLIEN</h3>
+
+            <p>
+                AYLIEN is an API for extracting what matters from documents, web pages, blogs, Tweets, and reviews, or
+                any textual content.
+                Understand what or who a document mentions, what topics it deals with, and what the sentiment of a piece
+                of text is.
+            </p>
+
+            <a href="https://aylien.com/text-api/">Know more</a>
+        </section>
+        <section>
+            <div class="input_container">
+                <form class="input_wrapper" onsubmit="EvaluateNews.handleSubmit(event)">
+                    <p>📋 Paste an url to see real quick</p>
+                    <input type="text" placeholder="https://engineering.fb.com/connectivity/discover/" id="url"
+                        required="required" />
+                    <br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id=" input_text_results" class="results">
+                <h4>Results</h4>
+                <hr />
+                <!-- The data from API will be filled in these fields -->
+                <p class="result_label">Text :</p>
+                <span class="result_info" id="text">
+                    <!-- The text entered will be displayed here -->
+                </span>
+
+                <p class="result_label">Polarity :</p>
+                <span class="result_info" id="polarity">
+                    <!-- The polarity is fetched from API will be displayed here -->
+                </span>
+
+                <p class="result_label">Polarity Confidence :</p>
+                <span class="result_info" id="polarity_confidence">
+                    <!-- The polarity confidence is fetched from API will be displayed here -->
+                </span>
+
+                <p class="result_label">Subjectivity :</p>
+                <span class="result_info" id="subjectivity">
+                    <!-- The subjectivity is fetched from API will be displayed here -->
+                </span>
+
+                <p class="result_label">Subjectivity confidence :</p>
+                <span class="result_info" id="subjectivity_confidence">
+                    <!-- The subjectivity confidence is fetched from API will be displayed here -->
+                </span>
+            </div>
+        </section>
+
+    </main>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () =>
+                navigator.serviceWorker.register("/service-worker.js").then(
+                    result => {
+                        alert("🥳 Your content made offline!")
+                    }
+                )
+            );
+        }
+        else {
+            console.log("Service Worker registered failed");
+        }
+    </script>
+
+</body>
+
+</html>
