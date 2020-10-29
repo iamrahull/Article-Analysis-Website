@@ -4,8 +4,8 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const API_ID = process.env.API_ID;
-const API_KEY = process.env.API_KEY;
+const API_ID = '66d8dfdd';
+const API_KEY = 'bd4375a2f7c9e97e93f772922bab7084';
 
 const textApi = new Aylien({
   application_id: API_ID,
